@@ -24,8 +24,7 @@ class MnistDS(Dataset):
         self.data = data
 
     def __getitem__(self, index) -> T_co:
-        img_data_arr, target = self.data[index]
-        return img_data_arr, target
+        return self.data[index]
 
     def __len__(self):
         return len(self.data)
