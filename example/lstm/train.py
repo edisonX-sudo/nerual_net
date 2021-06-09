@@ -51,10 +51,10 @@ if __name__ == '__main__':
     test_target = torch.from_numpy(data[:3, 1:])
     # build the model
     seq = Sequence()
-    seq.double()
+    seq.double()#?
     criterion = nn.MSELoss()
     # use LBFGS as optimizer since we can load the whole data to train
-    optimizer = optim.LBFGS(seq.parameters(), lr=0.8)
+    optimizer = optim.LBFGS(seq.parameters(), lr=0.8)#?
     #begin to train
     for i in range(opt.steps):
         print('STEP: ', i)
