@@ -22,6 +22,8 @@ data
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 .idea
+**/*.pt
+**/*.pdf
 
 # Gradle
 .idea/**/gradle.xml

@@ -79,11 +79,12 @@ if __name__ == '__main__':
             print('epoch:{}, batch:{}, accuracy:{}'.format(e_inx, bch_inx, rightness(output, target)))
     pass
 
-    rightness_scores = []
-    for bch_inx, (img_data, target) in enumerate(test_dl):
-        output = net(img_data)
-        rightness_scores.append(rightness(output, target))
-    print('avg rightness:{}, cost:{}s'.format(torch.mean(torch.tensor(rightness_scores)),
-                                              (datetime.now() - begin).seconds))
+    with torch.no_grad():
+        rightness_scores = []
+        for bch_inx, (img_data, target) in enumerate(test_dl):
+            output = net(img_data)
+            rightness_scores.append(rightness(output, target))
+        print('avg rightness:{}, cost:{}s'.format(torch.mean(torch.tensor(rightness_scores)),
+                                                  (datetime.now() - begin).seconds))
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
